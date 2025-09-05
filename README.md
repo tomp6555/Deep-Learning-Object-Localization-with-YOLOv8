@@ -34,9 +34,9 @@ Several tools can be used for dataset annotation:
 ```
 .
 ├── train_yolov8.py        # Script for training YOLOv8 on object dataset
-├── analysis.py       # Example analysis pipeline with detection integration
+├── analysis.py       # Analysis pipeline with detection integration
 ├── dataset.yaml           # Dataset configuration file for YOLO
-├── yolo_dataset/          # Prepared dataset
+├── yolo_dataset/          # Create folder and add dataset
 │   ├── images/
 │   │   ├── train/
 │   │   └── val/
