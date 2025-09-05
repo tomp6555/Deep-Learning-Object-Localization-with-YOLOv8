@@ -6,18 +6,18 @@ This repository provides a complete pipeline for **deep learning-based object de
 The project focuses on **bounding box detection** because:
 - ✅ Faster training & inference compared to segmentation.  
 - ✅ Sufficient for tasks that only require locating beads.  
-- ⚠️ If bead **width, continuity, or coverage** must be measured, consider pixel-level segmentation.  
+- ⚠️ If **width, continuity, or coverage** must be measured, consider pixel-level segmentation.  
 
-I use **Ultralytics YOLOv8**, known for **real-time performance** and **accuracy**, to train, evaluate, and deploy a custom model for bead detection.
+I use **Ultralytics YOLOv8**, known for **real-time performance** and **accuracy**, to train, evaluate, and deploy a custom model for object detection.
 
 ---
 
 ## 🚀 Workflow
-1. Analyze requirements for bead detection.  
+1. Analyze requirements for object detection.  
 2. Data preparation: Convert annotations into YOLO format.  
 3. Model selection: YOLOv8 chosen for speed and accuracy.  
 4. Training & inference with YOLOv8.  
-5. Integration into `bead_analysis.py` pipeline.  
+5. Integration into `analysis.py` pipeline.  
 6. Documentation & examples included.  
 
 ---
@@ -33,7 +33,7 @@ Several tools can be used for dataset annotation:
 ## 📂 Repository Structure
 ```
 .
-├── train_yolov8.py        # Script for training YOLOv8 on bead dataset
+├── train_yolov8.py        # Script for training YOLOv8 on object dataset
 ├── analysis.py       # Example analysis pipeline with detection integration
 ├── dataset.yaml           # Dataset configuration file for YOLO
 ├── yolo_dataset/          # Prepared dataset
@@ -82,7 +82,7 @@ train: images/train
 val: images/val
 nc: 1
 names:
-  0: bead
+  0: classname
 ```
 
 ---
@@ -117,7 +117,7 @@ yolo detect predict model=runs/detect/train/weights/best.pt source=path/to/image
 ## 🔗 Integration with Analysis Pipeline
 `analysis.py` integrates YOLO detection:
 - Loads trained YOLOv8 model  
-- Runs bead detection on input images  
+- Runs object detection on input images  
 - Exports bounding box coordinates for further analysis  
   - Bead count  
   - Size distribution  
@@ -130,7 +130,7 @@ For deep learning-based bounding box detection, three popular models are commonl
 
 1. **YOLO (You Only Look Once)**  
    - Known for its **speed** and **good accuracy**  
-   - Suitable for **real-time applications** such as bead detection  
+   - Suitable for **real-time applications** such as object detection  
    - We use **YOLOv8** in this project  
 
 2. **SSD (Single Shot MultiBox Detector)**  
@@ -147,17 +147,8 @@ In this project, we focus on **YOLOv8** for its strong balance between performan
 ---
 
 ## 📊 Example Results
-- **Input**: Raw bead image  
-- **Output**: Bounding boxes around beads + analysis results  
-
-(You can add example images here after training.)
-
----
-
-## ✅ Next Steps
-- Add training logs & sample detections  
-- Extend `bead_analysis.py` with quantitative bead metrics  
-- (Optional) Implement segmentation for bead continuity analysis  
+- **Input**: Raw image  
+- **Output**: Bounding boxes around object + analysis results  
 
 ---
 
