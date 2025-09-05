@@ -1,0 +1,12 @@
+# Root directory of your dataset
+path: "./dataset"
+
+# Train/validation/test image folders (relative to 'path' or absolute paths)
+train: "images/train"
+val: "images/val"
+
+# Number of classes
+nc: 1
+
+# Class names
+names: ['bead']
