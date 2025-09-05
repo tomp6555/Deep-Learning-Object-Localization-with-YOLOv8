@@ -103,17 +103,6 @@ runs/detect/train/
 
 ---
 
-## 🔎 Inference
-Once trained, run detection:
-```bash
-yolo detect predict model=runs/detect/train/weights/best.pt source=path/to/images
-```
-
-- Supports **images**, **videos**, or **webcam**.  
-- Detected beads are saved with bounding boxes.  
-
----
-
 ## 🔗 Integration with Analysis Pipeline
 `analysis.py` integrates YOLO detection:
 - Loads trained YOLOv8 model  
